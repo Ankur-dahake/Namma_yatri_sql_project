@@ -39,7 +39,7 @@ Some Important KPI were found out using sql query, which helps improve business.
 1. Total trips
 2. Total Earning
 3. average distance per trip average distance per trip
-4. which is the most used payment method 
+4. which is the most used payment method. 
 5.the highest payment was made through which instrument
 6.booking cancellation rate
 
