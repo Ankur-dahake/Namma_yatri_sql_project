@@ -3439,7 +3439,7 @@ select round(SUM(searches_got_quotes)*100/SUM(searches_for_quotes),2) as quote_r
 
 
 
--- booking cancellation rate
+-- Booking cancellation rate
 select round(SUM(otp_entered)*100/SUM(searches),2) as estimate_rate_pct from trips_details4;
 
 -- conversion rate
@@ -3452,7 +3452,7 @@ select *, rank() over (partition by duration order by cnt desc) as rnk from
 group by duration,loc_from)as a) as b
 where rnk=1;
 
--- which duration got the higest number of trips in each of the location present 
+-- Which duration got the highest number of trips in each of the locations present 
 
 select * from (
 select *, rank() over (partition by loc_from order by cnt desc) as rnk from
@@ -3471,7 +3471,7 @@ group by loc_from) as a) as b
 where rnk =1
 ;
 
--- from which location customer cancel most of ride .
+-- from which location the customer cancels most of ride.
 select * from ( select * ,RANK() over(order by cancel_by_customer desc ) as rnk from(
 select loc_from ,COUNT(distinct tripid) - SUM(driver_not_cancelled) as cancel_by_customer from trips_details4
 group by loc_from ) as a )as b
